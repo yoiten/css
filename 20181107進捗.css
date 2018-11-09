@@ -1,0 +1,331 @@
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {  margin: 0;  padding: 0; border: 0;  font-size: 100%;  font: inherit;  vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {  display: block;}body {  line-height: 1;}ol, ul {  list-style: none;}blockquote, q { quotes: none;}blockquote:before, blockquote:after,q:before, q:after { content: '';  content: none;}table {  border-collapse: collapse;  border-spacing: 0;}
+
+/* ここにCSSを書いてデザインを入れよう */
+
+/* boxの高さ、幅に border-width と padding を含める */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #aaa;
+}
+
+/* 全体を真ん中に配置 */
+.container {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #666;
+  box-shadow: rgba(0, 0, 0, .4) 0 0 8px;
+  overflow: hidden; // floatを使った場合の対策
+}
+
+/*ここからスタート！*/
+
+.header__title{
+  text-align:center;
+  padding:45px;
+  font-size:40px;
+  font-weight:bold;
+  opacity:0.5;
+}
+
+
+.global-nav__items{
+  display:flex;
+  flex-direction:row;
+  text-align:center;
+}
+
+.global-nav__item{
+  flex-grow:1; /*これを追加したら要素が幅いっぱいに広がった！！
+  これ無しだとflex-startの位置のまま*/
+  border:1px solid #000000;
+  padding:20px;
+}
+.global-nav__link{
+  text-decoration:none;
+  font-weight:bold;
+  color:black;
+  opacity:0.5;
+  shadow:/*(´›ω‹`)あとでググって追加する*/  
+}
+
+.bread-crumbs__items{
+  display:flex;
+  padding:10px;
+  /*パンくずは後回しにする！！！*/
+}
+
+.bread-crumbs__item is-current{
+}
+ /*
+.top-ads{
+}
+.top-ads__item{
+display:flex;
+}*/
+
+/*子要素にwidthを指定して横幅に収める*/
+.top-ads__items{
+  display:flex;
+    align-items:flex-start;
+  justify-content: space-around;
+
+}
+.top-ads__image{
+  padding:0px;
+  width:320px;
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  width:1000px;
+}
+
+/*bodyの中にmainとasideがあるよ*/
+/*asideを左に、mainを右に表示する*/
+.body{
+display:flex;
+  flex-direction:row-reverse;
+}
+
+
+.main{
+  width:80%;
+  padding-left:140px;
+  /*この直し方だとレスポンシブのこと考えるとダメな気もする*/
+}
+
+.aside{
+  width:20%;
+flex:0 0 100px;
+  position:relative;
+}
+
+.aside-ads{
+   padding:18px;
+  background-color:skyblue;
+   /* z-index:1;*/
+  position:absolute;
+ top: 0px;
+  right:-140px;
+}
+
+
+.local-nav{
+  position:relative;
+  z-index:2;
+  top:1300px;
+  left:100px;
+  /*  bottom:1300px;*/
+}
+
+/*なんで反映されないのかな？？*/
+.local-nav__item{
+text-decoration:none;
+  color:black;
+  background-color:pink;
+  padding:15px;
+  width:305px;
+  height:20px;
+  text-align:center;
+  position:relative;
+  top:45px;
+  left:-85px;
+ top:-140px;
+right:-200px;*/
+  /*このpositionからの位置調整の仕方ってあってるのかな・・*/
+}
+
+.article__image{
+  width:634px;
+}
+
+.main-header{
+  font-size:35px;
+  padding:24px;
+  background-color:white;
+}
+
+.article{
+    background-color:pink;
+  padding:12px;
+}
+
+.article__title{
+  font-size:28px;
+  font-weight:bold;
+  padding:10px;
+  padding-bottom:22px;
+  opacity:0.7;
+}
+
+.article__sub-title{
+  font-size:23px;
+  font-weight:bold;
+  padding:20px;
+}
+.article__sub-sub-title{
+ font-size:15px;
+  font-weight:bold;
+  padding:15px;
+  /*これを追加するとローカルナビの位置もずれた。親要素どこだ？*/
+}
+
+/*「お問い合わせ」*/
+.form__title{
+  font-size:27px;
+  padding:15px;
+padding-right:380px; 
+ font-weight:bold;
+  font-size:23px;
+  opacity:0.8;
+}
+
+.form{
+  background-color:white;
+}
+
+/*ここを消してもお問い合わせしか位置が動かないのはなんでだろう？*/
+.form{
+  display:flex;
+    flex-direction:column;
+  text-align:right;
+  padding-right:25px;
+}
+
+/*各要素ごとに囲ってる*/
+.form-item{
+display:flex;
+  flex-direction:row;
+ padding-left:120px;
+  margin-top:18px;
+}
+
+/*各フォームアイテムの名前*/
+.form-item__label{
+width:30%;
+  margin-right:20px;
+/*%だと縦が揃うけどpxだとフォーム名の文字数によってはズレてしまった*/
+}
+ 
+ font-weight:bold;
+  opacity:0.8;
+ padding-right:100px;
+}
+/*フォームのテキスト入力欄*/
+.form-item__text-input{
+width:350px;
+}
+/*テキスト・パスワード入力欄*/
+.form-item__text-input{
+  width:320px;
+}
+/*margin:20px;*/
+/*⇧これが反映されない。。*/
+
+/*複数行のテキスト入力欄*/
+.form-item__textarea{
+ width:20rem;
+  height:20rem;
+  margin-top:20px;
+}
+/*送信する・リセット*/
+.form-item__actions-items{
+  display:flex;
+}
+
+/*ラジオボタンとチェックボックスのその１その２その３を横並びに*/
+.form-item__inline-items{
+  display:flex;
+}
+
+/*お問い合わせ（あとまわし）*/
+.form__title{ 
+}
+/*ラジオボタンとチェックボックスの項目は横並びにしたい*/
+/*最下部の項目・リセットの項目も横並びにしたい*/
+
+.footer{
+  display:flex;
+ flex-direction: row;
+  flex-wrap:wrap;
+}
+
+
+/*ラジオボタン！*/
+.form-item__inline-item{
+  background-color:pink;
+   margin:5px;
+  padding:9px;
+  border-radius:5px;
+}
+
+/*プルダウンセレクト*/
+.form-item__select-pull-down{
+  width:320px;
+}
+/*リストセレクト*/
+.form-item__select-list{
+  width:320px;
+}
+
+/*ファイル選択*/
+.form-item__file{
+  width:320px;
+  background-color:pink;
+  padding:4px;
+  border-radius:4px;
+}
+
+.form-item__actions-item{
+  padding:20px;
+}
+/*ボタンを巨大化する方法がわかんない*/
+
+
+/*フッターナビを横並びにする。
+多分グリッドを使う*/
+
+.footer {
+  width: 100%;
+  background-color:pink;
+  padding:20px;
+  /*
+   display:flex;
+  flex-wrap:wrap;*/
+}
+
+/*【めも】この２項目も100%の親要素に対して〜〜%って感じで指定すればいけそう*/
+/*フッターナビ*/
+.footer-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-start;
+}
+
+/*おじさん以下の要素*/
+.about-author{
+  display:flex;
+  justify-content:flex-end;
+}
+
+
+ul {
+  display: flex;
+  margin: 0 -8px;
+}
+
+li {
+  flex: 1;
+  padding: 0 8px;
+}
+
+.grid-inner {
+  height: 80px;
+  background-color: red;
+}
